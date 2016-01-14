@@ -1,2 +1,2 @@
-# LaTeX-Template for Bachelor-/Master-Thesis at the University of Applied Sciences Offenburg
+# University of Applied Sciences Offenburg - Thesis LaTeX Template
 Test...
