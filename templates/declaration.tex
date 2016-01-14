@@ -1,0 +1,45 @@
+%%_____________________________________________________________________________________
+%%
+%%       Filename:  declaration.tex
+%%
+%%    Description:  ESK Lab Thesis Template declaration 
+%%
+%%        Version:  1.0
+%%        Created:  13.11.2015
+%%       Revision:  none
+%%
+%%         Author:  B.Eng. Oliver Kehret, okehret@stud.hs-offenburg.de
+%%   Organization:  HS Offenburg, Offenburg, Germany
+%%      Copyright:  Copyright (c) 2015, B.Eng. Oliver Kehret
+%%
+%%          Notes:  Inspired by Andreas Walz, Tobias Neff and Karl Voith
+%%                
+%%_____________________________________________________________________________________
+\section*{Eidesstattliche Erklärung}
+
+\foreignlanguage{ngerman}{
+Hiermit  versichere  ich  eidesstattlich,  dass  die  vorliegende  Bachelor
+Thesis von mir selbstständig und ohne unerlaubte fremde Hilfe angefertigt worden ist, insbesondere, dass ich alle Stellen, die wörtlich oder 
+annähernd wörtlich oder dem Gedanken nach aus Veröffentlichungen,
+unveröffentlichten Unterlagen und Gesprächen entnommen worden sind,
+als solche an den entsprechenden Stellen innerhalb der Arbeit durch Zitate kenntlich gemacht habe,
+wobei in den Zitaten jeweils der Umfang der entnommenen Originalzitate kenntlich gemacht wurde.
+Ich  bin  mir  bewusst,  dass  eine  falsche  Versicherung  rechtliche Folgen haben wird.}
+
+%\vfill
+
+%% definition of the block that contains date and signature
+\newcommand{\mysignatureblock}[3]{%
+  %% Sorry, this is a "bit" of a hack. Maybe someone knows a more elegant method?
+  \begin{tabular}{llp{2em}l} 
+  #1 & \hspace{4cm}        & & \hspace{4cm} \\\cline{2-2}\cline{4-4}
+     &                     & & \\[-3mm]
+     & {\footnotesize #2}  & & {\footnotesize #3}
+  \end{tabular}
+}
+
+\mysignatureblock{Offenburg,}{Datum}{Unterschrift}
+
+
+\newpage
+\newpage

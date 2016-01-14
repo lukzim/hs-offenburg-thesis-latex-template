@@ -1,0 +1,304 @@
+%----------------------------------------------------------------------------------------
+%
+%
+%	 Description:  This template is inspired by the LaTeX template provided by
+%                  B.Eng. Oliver Kehret. I made several adaptions and extensions.
+%       Filename:  preambles.tex
+%
+%    Description:  Thesis LaTeX Template University of Applied Sciences Offenburg
+%
+%        Version:  1.1
+%        Created:  2016/01/14
+%       Revision:  none
+%
+%        Authors:  B. Sc. Lukas Zimmermann, lzimmer1@stud.hs-offenburg.de
+%   Organization:  University of Applied Sciences Offenburg, Offenburg, Germany
+%      Copyright:  Copyright (c) 2016, B.Sc. Lukas Zimmermann
+%
+%          Notes:  Inspired by B.Eng. Oliver Kehret.
+%----------------------------------------------------------------------------------------
+
+\documentclass[%
+    fontsize=\myfontsize,
+	paper=\mypapersize,
+	parskip=\myparskip,
+	DIV=calc,
+	headinclude=true,		
+	footinclude=true,
+	open=right,
+	appendixprefix=true,	% include appendix?
+	bibliography=totoc,		% include an unnumbered unit of bibliography to the table of contents
+	BCOR=\myBCOR,        	% binding correction (depends on how you bind
+	                     	% the resulting printout.
+	\mylaterality,          % alternative: twoside
+    \mylanguage
+]{scrbook}
+
+%_____________________________________________________________________________________
+% General presentation
+%_____________________________________________________________________________________
+% full utf8 character set
+\usepackage[utf8]{inputenc}
+% language adaptions, change in main.tex (english, ngerman, american)
+\usepackage[\mylanguage]{babel}									
+% encode characters better, so that they can be copied out of .pdf in one piece
+\usepackage[T1]{fontenc}    
+% nicer quotes  
+\usepackage[%
+            autostyle,          % adapts language setting
+            strict,             % turns warnings into errors 
+            english=american    % use american quotes style
+]{csquotes}
+
+%_____________________________________________________________________________________
+% Style and Embedded-Lab-look-alike
+%_____________________________________________________________________________________
+\usepackage[automark]{scrpage2}							% allows usage of header and footer		
+\usepackage[perpage, hang]{footmisc} 						% footnote options
+% perpage: Nummerierung der Fu�noten auf jeder Seite neu beginnen
+% hang: Fu�note �ber mehrere zeilen richtig einr�cken
+
+%_____________________________________________________________________________________
+% includes pictures --> possible to include them in header/footer
+%_____________________________________________________________________________________
+\usepackage[pdftex]{graphicx}										
+
+
+
+%_____________________________________________________________________________________
+% Style and Embedded-Lab-look-alike Part 2
+%_____________________________________________________________________________________
+%% includes some colors
+\usepackage[table, usenames, dvipsnames]{xcolor}		
+\definecolor{DispositionColor}{RGB}{\mydispositioncolor}							
+\definecolor{light-gray}{gray}{0.95}	% define some colors
+\definecolor{dark-green}{rgb}{0,0.6,0}
+\renewcommand{\headfont}{\normalfont\sffamily\color{DispositionColor}}
+\renewcommand{\pnumfont}{\normalfont\sffamily\color{DispositionColor}}
+\addtokomafont{disposition}{\color{DispositionColor}}
+\addtokomafont{caption}{\color{DispositionColor}\footnotesize}
+\addtokomafont{captionlabel}{\color{DispositionColor}}
+% used for calculation of header footer etc. ...
+\usepackage{calc}											
+% change page layout
+% ftp://ftp.fu-berlin.de/tex/CTAN/macros/latex/contrib/geometry/geometry.pdf
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{3in}  %1.75
+% header and footer
+\pagestyle{scrheadings}							% for customization for header and footer
+\renewcommand{\chapterpagestyle}{scrheadings}	% include header and footer on chapter pages
+\clearscrheadfoot
+
+% http://ctan.uib.no/macros/latex/contrib/koma-script/doc/scrguien.pdf
+% page 204
+\ifoot{\vspace{-0.25cm}\mytitle~\myauthor}
+\ofoot{ \vspace{-0.25cm} \thepage}
+\automark{chapter}
+\setheadsepline[ \textwidth + 5pt ]{1pt} % seperation line for header...
+\setfootsepline[ \textwidth + 5pt ]{1pt} % ... and footer
+\setkomafont{footsepline}{\color{red}} 	 % change colors of seperation lines
+\setkomafont{headsepline}{\color{red}}
+
+
+
+%-------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%-------------------------------------------------------------------------------------
+\usepackage[backend=bibtex,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA).
+% ------------------------------------------------------------------------------------
+
+
+%_____________________________________________________________________________________
+% Selection of useful packages
+%_____________________________________________________________________________________
+%
+%_____________________________________________________________________________________
+% SIUNITSX -- simplified usage of SI-units
+%_____________________________________________________________________________________
+\usepackage[% 
+            exponent-product = \cdot % use \cdot instead * for exponent product
+]{siunitx}	              
+%_____________________________________________________________________________________
+% ifthen and todonotes puts to-do-notes in the printed document if you want 
+%_____________________________________________________________________________________
+% used to disable todonotes package
+\usepackage{ifthen}                                         
+% pre-define ifthen-boolean variables:
+\newboolean{myaddcolophon}
+\newboolean{myaddlistoftodos}
+%
+% currently american is not supported by todonotes but english is fine as it's only
+% effects todonotes and missingfigures
+\usepackage[\mytodonotesoptions, english]{todonotes}
+%_____________________________________________________________________________________
+% Sourcecode printing
+%_____________________________________________________________________________________
+\usepackage{listings}				% include source code
+									% ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+\lstset{% 							% options for representation of source code
+  backgroundcolor=\color{light-gray},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % ses the caption-position to bottom
+  commentstyle=\color{dark-green}, % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=false,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=lines,                     % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=C,                      % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=8pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{gray},   % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{blue},        % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
+  %numberbychapter=false
+}
+%\renewcommand\lstlistingname{Quelltext}	% change caption of listings
+%_____________________________________________________________________________________
+% Math 
+%_____________________________________________________________________________________
+\usepackage{amssymb,amstext} % predefiened symbols e.g. \nparallel
+\usepackage[%
+            fleqn,%equations aligned in a fixed distance from the left
+            tbtags, %where the equation number is placed here bottom or top
+]{mathtools} % loads amsmath package
+
+%_____________________________________________________________________________________
+% Tables, figures etc.
+%_____________________________________________________________________________________
+%
+% nice rule's for tables try \toprule \midrule \bottomrule  
+\usepackage{booktabs}
+% set width of table and more
+\usepackage{tabularx}										% creates tables
+%
+% rotate tables and figures
+\usepackage{rotating}
+%
+% define caption style
+\addtokomafont{caption}{\small} 	% small captions
+\usepackage[font=small, width=0.9\textwidth, format=plain, labelfont=bf]{caption}
+%
+%
+\usepackage{subfigure}
+
+%_____________________________________________________________________________________
+% some utility stuff
+%_____________________________________________________________________________________
+%
+% \usepackage[]{acronym}				% for usage of abbreviations
+\usepackage[printonlyused]{acronym}
+\usepackage{float}		% to force the placement of graphics.
+\usepackage{eurosym} % Required to use \euro for the euro symbol.
+%
+% improved typographical settings
+\usepackage[%
+    protrusion=true, %
+    factor=900       %
+]{microtype}
+%
+% switch of extra space after punctuation
+\frenchspacing 
+%
+% switches to Palatino with small caps and old style figures
+\usepackage[%
+sc,%
+osf,%
+]{mathpazo}
+%
+% customize item look
+% \usepackage{enumitem}
+% kills space between items
+%\setlist{noitemsetup}
+% For additional special characters available by \verb#\ding{}#
+\usepackage{pifont}  % Sonderzeichen fuer Titelseite \ding{}
+%
+% This package is required for intelligent spacing after commands
+\usepackage{xspace}
+%
+%
+% This package offers strikethrough command \verb+\sout{foobar}+.
+\usepackage[normalem]{ulem}
+%
+%
+% Create framed, shaded, or differently highlighted regions that can 
+% break across pages.  The environments defined are 
+% \begin{itemize}
+%   \item framed: ordinary frame box (\verb+\fbox+) with edge at margin
+%   \item shaded: shaded background (\verb+\colorbox+) bleeding into margin
+%   \item snugshade: similar
+%   \item leftbar: thick vertical line in left margin
+% \end{itemize}
+\usepackage{framed}
+%
+% For example on title pages you might want to have a logo on the upper right corner of
+% the first page (only). The package \texttt{eso-pic} is able to place things on absolute
+% and relative positions on the whole page.
+\usepackage{eso-pic} %
+% for what ????
+%\usepackage{lastpage}										% get total number of pages
+%
+
+%_____________________________________________________________________________________
+% drawing tikz
+%_____________________________________________________________________________________
+%
+% best way is to draw in different file and include in maindocument as it really slows down
+% include tikz for final release
+
+
+%%_____________________________________________________________________________________
+% Own Colors for header, captions etc.
+%_____________________________________________________________________________________
+%
+
+
+
+
+
+% prevent club & widow penalty
+\clubpenalty10000
+\widowpenalty10000
+\displaywidowpenalty10000
+
+%_____________________________________________________________________________________
+% pdfcompresslevel from 0 to 10; std is fine 
+%_____________________________________________________________________________________
+\pdfcompresslevel=9 
+%_____________________________________________________________________________________
+% Hyperref should always be the last package added -- 
+%_____________________________________________________________________________________
+\usepackage[%							% enables typesettings for hyperlinks
+	                    				% http://en.wikibooks.org/wiki/LaTeX/Hyperlinks	
+	pdftitle={\mysubject},%
+	pdfauthor = {\myauthor},%
+	pdfsubject = {\mysubject},%
+    colorlinks={\mycolorlinks},					% removes color frames 
+    pdfcreator={pdfTex},%
+    pdfkeywords={\mykeywords},%
+    pdftex = true,%
+    backref,%
+    pagebackref=false, % creates backward references too
+    bookmarks=True, %
+    bookmarksopen=false, % when starting with AcrobatReader, the Bookmarkcolumn is opened
+    pdfpagemode=UseOutlines,% None, UseOutlines, UseThumbs, FullScreen
+    plainpages=false % correct, if pdflatex complains: ``destination with same identifier already exists''
+    % pdfpagelabels,
+    %
+    % colors: https://secure.wikimedia.org/wikibooks/en/wiki/LaTeX/Colors
+	%hidelinks,							% removes color and porder
+	%breaklinks=true,
+]{hyperref}								% should be the last package to be inlcuded!
