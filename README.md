@@ -6,7 +6,7 @@
 
 ## 1.1 Linux based systems
 Install the full version of TeX Live with all packages:  
-sudo apt-get install texlive-full
+***sudo apt-get install texlive-full***
 
 ## 1.2 Microsoft Windows
 Download the [Windows installer](https://www.tug.org/texlive/).
