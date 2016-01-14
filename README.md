@@ -1,2 +1,2 @@
-# hs-offenburg-thesis-latex-template
-LaTeX Template for Bachelor- or Master-Thesis at the HS Offenburg.
+# LaTeX-Template for Bachelor-/Master-Thesis at the University of Applied Sciences Offenburg
+Test...
