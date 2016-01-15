@@ -8,15 +8,23 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{Main Section 1}
+\section{Figures}
 
-Acronyms are only printed to the 'List of Acronyms' if they are used anywhere in the thesis.
+Acronyms are only printed to the 'List of Abbreviations' if they are used anywhere in the thesis. Define them in the \textit{main.tex} file.
 
-For example:
+\textbf{Usage exmaples:}
 
-\vspace{1em}
+Normally, abbreviations are fully contracted out when they are mentioned for the first time:
 
-The \ac{USB} is an industry standard developed...
+\ac{USB} is an industry standard developed...
+
+Then, the abbreviation can be used. \LaTeX~will automatically add a reference to the 'List of Abbreviations':
+
+\acs{USB} is an industry standard developed...
+
+Without abbreviation (also without reference):
+
+\acl{USB} is an industry standard developed...
 
 \vspace{1em}
 
@@ -49,6 +57,37 @@ Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar p
 %	SECTION 2
 %----------------------------------------------------------------------------------------
 
-\section{Main Section 2}
+\section{Tables}
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl.
+
+\begin{table}[H]
+\centering
+\caption{Table Template.}
+\label{tab:table_template}
+\begin{tabular}{|l||c|c|c|c|}
+\hline
+ & \textbf{Column~1} & \textbf{Column~2} & \textbf{Column~3} & \textbf{Column~4} \\ \hline
+
+Row~1 & 1/1 & 1/2 & 1/3 & 1/4 \\ \hline
+Row~2 & 2/1 & 2/2 & 2/3 & 2/4 \\ \hline
+Row~3 & 3/1 & 3/2 & 3/3 & 3/4 \\ \hline
+Row~4 & 4/1 & 4/2 & 4/3 & 4/4 \\ \hline
+Row~5 & 5/1 & 5/2 & 5/3 & 5/4 \\ \hline
+
+\end{tabular}
+\end{table}
+
+\section{Listings}
+
+Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis.
+
+\vspace{1em}
+
+\begin{lstlisting}[firstnumber=37, caption={Sample listing.}]
+public void loop1000() {
+	for (int i = 0; i < 1000; i++);
+}
+\end{lstlisting}
+
+Remember to start the line numbering at the same position as in your source code.
