@@ -71,10 +71,13 @@
 \tableofcontents % Prints the main table of contents.
 
 \listoffigures % Prints the list of figures.
+\addcontentsline{toc}{chapter}{\listfigurename}
 
 \listoftables % Prints the list of tables.
+\addcontentsline{toc}{chapter}{\listtablename}
 
 \lstlistoflistings % Prints the list of code listings.
+\addcontentsline{toc}{chapter}{\lstlistoflistingsname}
 
 %----------------------------------------------------------------------------------------
 %	ACRONYMS.
@@ -83,6 +86,7 @@
 \cleardoublepage
 
 \chapter*{List of Abbreviations}
+\addcontentsline{toc}{chapter}{\listofabbreviationsname}
 
 \begin{acronym}[XXXXXX]
 \acro{USB}{Universal Serial Bus}
