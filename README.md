@@ -20,6 +20,13 @@ TeXstudio is a program based on Texmaker, which integrates many tools needed to 
 ## 2.2 Other
 There exist further more LaTeX editors like Texmaker or TeXworks.
 
+## 2.3 SCons build system
+Alternatively you can build the thesis.pdf file using SCons.
+
+Install SCons: ***sudo apt-get install scons***
+
+Build: ***scons***
+
 # 3 BibTeX
 
 Execute BibTeX before compiling the template for the first time.
