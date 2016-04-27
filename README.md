@@ -27,7 +27,7 @@ Execute BibTeX before compiling the template for the first time.
 # 4 SCons
 
 Alternatively you can build the thesis.pdf file using SCons.
-Install SCons:
-***sudo apt-get install scons***
-Build the thesis.pdf file:
-***scons***
+
+Install SCons: ***sudo apt-get install scons***
+
+Build: ***scons***
