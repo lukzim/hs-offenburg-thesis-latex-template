@@ -1,0 +1,139 @@
+%----------------------------------------------------------------------------------------
+%
+%
+%	 Description:  This template is inspired by the LaTeX template provided by
+%                  B.Eng. Oliver Kehret. I made several adaptions and extensions.
+%       Filename:  main.tex
+%
+%    Description:  Thesis LaTeX Template University of Applied Sciences Offenburg
+%
+%        Version:  1.1
+%        Created:  2016/01/14
+%       Revision:  none
+%
+%        Authors:  B. Sc. Lukas Zimmermann, lzimmer1@stud.hs-offenburg.de
+%   Organization:  University of Applied Sciences Offenburg, Offenburg, Germany
+%      Copyright:  Copyright (c) 2016, B.Sc. Lukas Zimmermann
+%
+%          Notes:  Inspired by B.Eng. Oliver Kehret.
+%----------------------------------------------------------------------------------------
+
+%for search with vim and okular 
+\synctex=1
+\input{templates/macros}
+%________________________________________________________________________________________
+%  preamble
+%________________________________________________________________________________________
+\input{templates/preamble}
+%________________________________________________________________________________________
+%  TODO: Enable/Disable
+%________________________________________________________________________________________
+\setboolean{myaddlistoftodos}{true}  %% "true" or "false"
+% If set to "true": the current list of open todos is added after the
+% table of contents. If \mytodonotesoptions is set to "disable", no
+% list of todos is added, independent of this setting here.
+
+
+% example for language = english
+%\hypthenation{ex-am-ple hy-phen-ate}
+
+%----------------------------------------------------------------------------------------
+%	ADD BIBTEX FILE.
+%----------------------------------------------------------------------------------------
+\addbibresource{bibliography.bib} % The filename of the bibliography.
+
+%________________________________________________________________________________________
+%	\begin{document}
+%________________________________________________________________________________________
+\begin{document}
+
+\frontmatter %KOMA: roman page numbers and such; only available in scrbook
+
+\input{templates/titlepage}
+%% Statutory Declaration __ For Bachelor or Master thesis 
+%% have to follow the titlepage
+%%\input{template/declaration} 
+
+
+\cleardoublepage
+%________________________________________________________________________________________
+%	Abstract
+%________________________________________________________________________________________
+
+%tbd
+\include{chapters/abstract}
+\clearpage
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES.
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents.
+
+\listoffigures % Prints the list of figures.
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+\listoftables % Prints the list of tables.
+\addcontentsline{toc}{chapter}{\listtablename}
+
+\lstlistoflistings % Prints the list of code listings.
+\addcontentsline{toc}{chapter}{\lstlistoflistingsname}
+
+%----------------------------------------------------------------------------------------
+%	ACRONYMS.
+%----------------------------------------------------------------------------------------
+
+\cleardoublepage
+
+\chapter*{List of Abbreviations}
+\addcontentsline{toc}{chapter}{\listofabbreviationsname}
+
+\begin{acronym}[XXXXXX]
+\acro{USB}{Universal Serial Bus}
+\acro{CoAP}{Constrained Application Protocol}
+\end{acronym}
+
+\cleardoublepage
+
+%________________________________________________________________________________________
+%	Body
+%________________________________________________________________________________________
+\mainmatter  %% KOMA: marks main part using arabic page numbers and such; only available in book-classes 
+
+% you have to create your chapter file here
+\include{chapters/chapterTemplate}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are appendices.
+
+% Include the appendices of the thesis as separate files from the appendices folder.
+% Uncomment the lines as you write the appendices.
+
+\input{appendices/appendixA}
+\input{appendices/appendixTemplate}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
+%----------------------------------------------------------------------------------------
+
+%________________________________________________________________________________________
+%	Appendix
+%________________________________________________________________________________________
+%% add possible appendix 
+%%\appendix
+%%\addpart*{Appendix}
+%%\input{chapter/appendices.tex}
+
+%________________________________________________________________________________________
+%	\end{document}
+%________________________________________________________________________________________
+\end{document}
+
+\grid
