@@ -23,3 +23,11 @@ There exist further more LaTeX editors like Texmaker or TeXworks.
 # 3 BibTeX
 
 Execute BibTeX before compiling the template for the first time.
+
+# 4 SCons
+
+Alternatively you can build the thesis.pdf file using SCons.
+Install SCons:
+***sudo apt-get install scons***
+Build the thesis.pdf file:
+***scons***
